@@ -8,7 +8,8 @@ const classNames = {
 const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-countSpan')
 const uncheckedCountSpan = document.getElementById('unchecked-countSpan')
-
+const container = document.getElementById("container")
+const te = document.getElementById("test")
 
  
 
@@ -22,14 +23,25 @@ const uncheckedCountSpan = document.getElementById('unchecked-countSpan')
 	
 	   var li= document.createElement('li');
 	   list.appendChild(li);
-	   li.setAttribute("id","li1")
+       li.setAttribute("id","number" + count)
        li.innerHTML = " " + toDo + " "
 	   count++
 	   itemCountSpan.innerHTML =count;
 	   uncheckedSpan++
 	   uncheckedCountSpan.innerHTML = uncheckedSpan;
-	 
-	   
-	 
+	   Strike()
+	
    }
- 
+  
+   function Strike() {
+	   
+    for(let i = 0; i <= count; i++) {
+		const ID = "number" + i
+		var task = document.getElementById(ID).textContent
+		const taskID = document.getElementById(ID)
+		var string = String(task)
+		var result = string.strike()
+		taskID.innerHTML = result
+		//task.strike();
+	}
+  }
